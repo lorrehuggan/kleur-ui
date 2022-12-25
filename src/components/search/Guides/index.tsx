@@ -18,14 +18,14 @@ const Guides = () => {
           height={50}
         />
       </div>
-      {/* <div className="absolute left-[150px] -top-10 inline-block origin-left -rotate-[5deg] ">
+      <div className="absolute left-[150px] -top-10 inline-block origin-left -rotate-[5deg] ">
         <span className=" font-hand text-xl">
           Hit the space bar<br></br>randomize hex code.
         </span>
       </div>
-      <div className="absolute left-[260px] -top-2 inline-block origin-right -rotate-[30deg] ">
-        <Image src={arrowWith} alt="arrow swirl" width={50} height={50} />
-      </div> */}
+      <div className="absolute left-[250px] -top-0 inline-block origin-right -rotate-[20deg] ">
+        <Image src={arrowWith} alt="arrow swirl" width={40} height={40} />
+      </div>
     </>
   );
 };

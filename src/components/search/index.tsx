@@ -1,12 +1,24 @@
 import Guides from "./Guides";
 import { useColor } from "@utils/globalState/color";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { vendor } from "@utils/vendor";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import useKeyboardEvent from "@utils/hooks/useKeyboardEvent";
+import * as Popover from "@radix-ui/react-popover";
 
 const Search = () => {
   const { color, setColor } = useColor((state) => state);
+  const [invalid, setInvalid] = useState(false);
+
+  useKeyboardEvent(" ", (e) => {
+    setColor(vendor.getRandomColor());
+  });
 
   function handleColorChange(c: string) {
+    setInvalid(false);
+    if (!vendor.isValidColor(c)) {
+      setInvalid(true);
+    }
     if (c.includes("#")) {
       setColor(c);
       return;
@@ -32,6 +44,9 @@ const Search = () => {
           value={color}
           onChange={(e) => handleColorChange(e.target.value)}
         />
+        {invalid && (
+          <ExclamationTriangleIcon className="absolute top-[35px] right-[60px] h-6 w-6 -translate-y-1/2 transform text-red-500" />
+        )}
       </div>
     </section>
   );
