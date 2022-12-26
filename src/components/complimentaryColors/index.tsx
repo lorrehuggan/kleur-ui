@@ -34,7 +34,7 @@ const ComplementaryColors = () => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className=" min-w-[220px] rounded-md bg-white p-2 shadow-outline">
+        <DropdownMenu.Content className=" min-w-[220px] space-y-4 rounded-md bg-white p-2 shadow-outline">
           <DropdownMenu.Sub>
             <DropdownMenu.SubTrigger className="color-t flex cursor-pointer items-center justify-between rounded-md p-1 pl-4 text-sm tracking-wide text-neutral-700 hover:bg-purple-400 hover:text-white">
               Complimentary
@@ -148,7 +148,7 @@ const ComplementaryColors = () => {
               </DropdownMenu.SubContent>
             </DropdownMenu.Portal>
           </DropdownMenu.Sub>
-          <DropdownMenu.Arrow />
+          {/* <DropdownMenu.Arrow className="hidden lg:block" /> */}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

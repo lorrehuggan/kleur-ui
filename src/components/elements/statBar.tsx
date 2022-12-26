@@ -12,12 +12,15 @@ const StatBar = () => {
     >
       <div className="flex h-full flex-1 items-center justify-between p-3">
         <div>
-          <p style={{ color: getShades(color)[2] }} className="text-xs">
+          <p
+            style={{ color: getShades(color)[2] }}
+            className="text-[8px] lg:text-xs"
+          >
             Total Likes
           </p>
           <h4
             style={{ color: getShades(color)[2] }}
-            className="text-xl font-black"
+            className="font-black lg:text-xl"
           >
             20.5K
           </h4>
@@ -31,12 +34,15 @@ const StatBar = () => {
       </div>
       <div className="flex h-full flex-1 items-center justify-between p-3">
         <div>
-          <p style={{ color: getShades(color)[2] }} className="text-xs">
+          <p
+            style={{ color: getShades(color)[2] }}
+            className="text-[8px] lg:text-xs"
+          >
             Page Views
           </p>
           <h4
             style={{ color: getShades(color)[2] }}
-            className="text-xl font-black"
+            className="font-black lg:text-xl"
           >
             2.5M
           </h4>
@@ -50,12 +56,15 @@ const StatBar = () => {
       </div>
       <div className="flex h-full flex-1 items-center justify-between p-3">
         <div>
-          <p style={{ color: getShades(color)[2] }} className="text-xs">
+          <p
+            style={{ color: getShades(color)[2] }}
+            className="text-[8px] lg:text-xs"
+          >
             Tasks
           </p>
           <h4
             style={{ color: getShades(color)[2] }}
-            className="text-xl font-black"
+            className="font-black lg:text-xl"
           >
             38%
           </h4>

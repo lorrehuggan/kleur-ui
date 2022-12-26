@@ -5,7 +5,7 @@ const Header = () => {
   const { color } = useColor((state) => state);
   return (
     <header className="flex h-20 items-center border-b-[1px] border-neutral-500/40">
-      <div className="container-lg flex items-center justify-between">
+      <div className="container-sm lg:container-lg flex items-center justify-between">
         <div className="flex items-center gap-1">
           <span className=" uppercase tracking-widest text-neutral-500">
             Kleur

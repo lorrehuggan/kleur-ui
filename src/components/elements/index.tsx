@@ -11,7 +11,7 @@ const Elements = () => {
   const color = useColor((state) => state.color);
 
   return (
-    <section className="container-lg mt-4 grid grid-cols-3 gap-4 rounded-xl p-12">
+    <section className="container-sm lg:container-lg mt-16 grid grid-cols-1 gap-4 rounded-xl lg:grid-cols-3 lg:gap-4 lg:p-12 ">
       <Container>
         <GrossCard />
         <BarCalender />
@@ -32,6 +32,8 @@ export default Elements;
 
 const Container = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex h-96 w-full max-w-sm flex-col gap-2">{children}</div>
+    <div className="flex h-96 w-full max-w-sm flex-col gap-4 lg:gap-2">
+      {children}
+    </div>
   );
 };

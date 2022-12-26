@@ -8,16 +8,16 @@ const Palette = () => {
   const { color } = useColor((state) => state);
 
   return (
-    <section className="container-lg mt-20 px-12">
+    <section className="container-sm lg:container-lg mt-16 lg:mt-4">
       <div className=" flex items-center justify-between">
         <ComplementaryColors />
         <ExportOverlay />
       </div>
-      <div className="mx-auto mt-4 flex overflow-hidden rounded-md ">
+      <div className="mx-auto mt-4 flex flex-col overflow-hidden rounded-md lg:flex-row ">
         {getShades(color).map((hex, i) => {
           return (
             <div
-              className="color-t flex h-40 w-full flex-col items-center justify-end p-4"
+              className="color-t flex h-20 w-full flex-col items-center justify-end p-4 lg:h-40"
               key={i}
               style={{ backgroundColor: hex }}
             >

@@ -27,7 +27,7 @@ const Search = () => {
   }
 
   return (
-    <section className="container-lg relative mt-24">
+    <section className="container-sm lg:container-lg relative mt-16 lg:mt-24">
       <Guides />
       <div className="relative mx-auto w-full max-w-xl">
         <input
