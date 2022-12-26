@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <Layout title="Kleur" description="">
+      <Layout title="Kleur ui " description="">
         <Headline />
         <Search />
         <Palette />

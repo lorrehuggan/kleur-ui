@@ -1,22 +1,28 @@
 import { useColor } from "@utils/globalState/color";
 import { ReactNode } from "react";
 import BarCalender from "./barCalender";
+import BigCard from "./bigCard";
+import DogCard from "./dog";
 import GrossCard from "./grossCard";
+import StatBar from "./statBar";
+import StatBarOne from "./statBarOne";
 
 const Elements = () => {
   const color = useColor((state) => state.color);
 
   return (
-    <section className="container-lg mt-4 grid grid-cols-3 gap-3 rounded-xl border-[1px] border-black/30 p-12">
+    <section className="container-lg mt-4 grid grid-cols-3 gap-4 rounded-xl p-12">
       <Container>
         <GrossCard />
         <BarCalender />
       </Container>
       <Container>
-        <p></p>
+        <StatBar />
+        <StatBarOne />
+        <DogCard />
       </Container>
       <Container>
-        <p></p>
+        <BigCard />
       </Container>
     </section>
   );

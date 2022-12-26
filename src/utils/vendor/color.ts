@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import { TinyColor } from "@ctrl/tinycolor";
 
 function hexCodeCheck(hex: string): string {
   let colorCode = "";
@@ -92,19 +93,75 @@ export function generateTailwindColorConfig(
   colors: string[],
   colorName: string
 ): string {
-  let config = "";
+  let config = `'${colorName}': {\n`;
 
-  colors.forEach((color) => {
-    if (color === colorName) {
-      config += `  '${color}': {\n`;
-
-      for (let i = 50; i <= 900; i += 100) {
-        config += `    ${i}: '${color}-${i}',\n`;
-      }
-
-      config += `  },\n`;
+  colors.forEach((color, i) => {
+    if (i === 0) {
+      config += `   50: '${color}',\n`;
+      return;
     }
+
+    config += `   ${i * 100}: '${color}',\n`;
   });
 
+  config += "},\n";
+
   return config;
+}
+
+// function to get color name
+export function getColorName(hex: string): string {
+  const colorCode = hexCodeCheck(hex);
+  const color = chroma(colorCode);
+  const colorName = color.name();
+
+  return colorName;
+}
+
+// function to get color triad
+export function getTriad(hex: string): string[] {
+  const color = new TinyColor(hex);
+  const colorTriad = color.triad();
+
+  return colorTriad.map((color) => color.toHexString());
+}
+
+// function to get color complement
+export function getComplement(hex: string): string[] {
+  const color = new TinyColor(hex);
+  const colorComplement = color.complement();
+
+  return [colorComplement.toHexString()];
+}
+
+// function to get color tetrad
+export function getTetrad(hex: string): string[] {
+  const color = new TinyColor(hex);
+  const colorTetrad = color.tetrad();
+
+  return colorTetrad.map((color) => color.toHexString());
+}
+
+// function to get color splitcomplement
+export function getSplitComplement(hex: string): string[] {
+  const color = new TinyColor(hex);
+  const colorSplitComplement = color.splitcomplement();
+
+  return colorSplitComplement.map((color) => color.toHexString());
+}
+
+// function to get color monochromatic
+export function getMonochromatic(hex: string): string[] {
+  const color = new TinyColor(hex);
+  const colorMonochromatic = color.monochromatic();
+
+  return colorMonochromatic.map((color) => color.toHexString());
+}
+
+// function to get color analogous
+export function getAnalogous(hex: string): string[] {
+  const color = new TinyColor(hex);
+  const colorAnalogous = color.analogous();
+
+  return colorAnalogous.map((color) => color.toHexString());
 }

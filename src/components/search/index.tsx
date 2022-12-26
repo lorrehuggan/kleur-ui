@@ -10,7 +10,7 @@ const Search = () => {
   const { color, setColor } = useColor((state) => state);
   const [invalid, setInvalid] = useState(false);
 
-  useKeyboardEvent(" ", (e) => {
+  useKeyboardEvent("Control", (e) => {
     setColor(vendor.getRandomColor());
   });
 
@@ -36,6 +36,7 @@ const Search = () => {
           defaultValue={color}
           value={color}
           placeholder="Hexcode"
+          maxLength={7}
           onChange={(e) => handleColorChange(e.target.value)}
         />
         <input

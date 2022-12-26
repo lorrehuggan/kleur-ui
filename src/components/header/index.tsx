@@ -17,7 +17,7 @@ const Header = () => {
             ui
           </span>
         </div>
-        <div className="flex items-center gap-4 text-lg text-neutral-600">
+        <div className="flex items-center gap-4 text-sm uppercase tracking-widest text-neutral-600">
           <a>Create</a>
           <a>Edit</a>
         </div>

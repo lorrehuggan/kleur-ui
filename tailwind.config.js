@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         hand: ["Patrick Hand", ...defaultTheme.fontFamily.mono],
+        mono: ["Chivo Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },

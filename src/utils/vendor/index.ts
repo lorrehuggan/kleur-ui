@@ -4,6 +4,7 @@ import {
   getRandomColor,
   isValidColor,
   generateTailwindColorConfig,
+  getColorName,
 } from "./color";
 
 export const vendor = {
@@ -12,6 +13,7 @@ export const vendor = {
   getRandomColor,
   isValidColor,
   generateTailwindColorConfig,
+  getColorName,
 };
 
 // class with all functions for color
@@ -53,6 +55,9 @@ export class Color {
 
   // generate tailwind color config
   public generateTailwindColorConfig(): string {
-    return generateTailwindColorConfig(this.getShades(this.color), this.name);
+    return generateTailwindColorConfig(
+      this.getShades(),
+      this.name.toLowerCase()
+    );
   }
 }
