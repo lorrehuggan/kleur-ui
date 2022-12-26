@@ -1,42 +1,157 @@
-import { ShuffleIcon } from "@radix-ui/react-icons";
-import * as Tooltip from "@radix-ui/react-tooltip";
+import {
+  ChevronRightIcon,
+  ComponentBooleanIcon,
+  ComponentNoneIcon,
+  DotsHorizontalIcon,
+  HamburgerMenuIcon,
+  LayersIcon,
+  LoopIcon,
+  MagicWandIcon,
+  ShuffleIcon,
+} from "@radix-ui/react-icons";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useColor } from "@utils/globalState/color";
-import { getComplement, getTextColor } from "@utils/vendor/color";
+import {
+  getComplement,
+  getTriad,
+  getTetrad,
+  getSplitComplement,
+  getAnalogous,
+} from "@utils/vendor/color";
 
 const ComplementaryColors = () => {
   const { color, setColor } = useColor((state) => state);
+
   const handleChangeColor = (hex: string) => {
     setColor(hex);
   };
   return (
-    <div className="flex items-center">
-      {getComplement(color).map((hex, i) => {
-        return (
-          <Tooltip.Provider key={i}>
-            <Tooltip.Root>
-              <Tooltip.Trigger asChild>
-                <div
-                  onClick={() => handleChangeColor(hex)}
-                  key={i}
-                  style={{ backgroundColor: hex }}
-                  className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full border-[2px] border-black"
-                ></div>
-              </Tooltip.Trigger>
-              <Tooltip.Portal>
-                <Tooltip.Content
-                  style={{ backgroundColor: hex, color: getTextColor(hex) }}
-                  className=" flex items-center gap-1 rounded-md p-2 text-center text-sm text-neutral-500 shadow-md"
-                >
-                  <ShuffleIcon className="h-4 w-4" />
-                  <span>Shuffle Complementary Color</span>
-                  <Tooltip.Arrow style={{ fill: hex }} className="fill-white" />
-                </Tooltip.Content>
-              </Tooltip.Portal>
-            </Tooltip.Root>
-          </Tooltip.Provider>
-        );
-      })}
-    </div>
+    <DropdownMenu.Root>
+      <DropdownMenu.Trigger asChild>
+        <button>
+          <HamburgerMenuIcon className="h-4 w-4" />
+        </button>
+      </DropdownMenu.Trigger>
+
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content className=" min-w-[220px] rounded-md bg-white p-2 shadow-outline">
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className="color-t flex cursor-pointer items-center justify-between rounded-md p-1 pl-4 text-sm tracking-wide text-neutral-700 hover:bg-purple-400 hover:text-white">
+              Complimentary
+              <ComponentBooleanIcon className="h-4 w-4" />
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent className="min-w-[170px] space-y-2 rounded-md bg-white p-2 shadow-outline">
+                {getComplement(color).map((hex, i) => {
+                  return (
+                    <DropdownMenu.Item key={i}>
+                      <div
+                        onClick={() => handleChangeColor(hex)}
+                        style={{ backgroundColor: hex }}
+                        className="h-4 w-full cursor-pointer rounded-md "
+                      ></div>
+                    </DropdownMenu.Item>
+                  );
+                })}
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className="color-t flex cursor-pointer items-center justify-between rounded-md p-1 pl-4 text-sm tracking-wide text-neutral-700 hover:bg-purple-400 hover:text-white">
+              Triad
+              <DotsHorizontalIcon className="h-4 w-4" />
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent className="min-w-[170px] space-y-2 rounded-md bg-white p-2 shadow-outline">
+                {getTriad(color)
+                  .slice(1)
+                  .map((hex, i) => {
+                    return (
+                      <DropdownMenu.Item key={i}>
+                        <div
+                          onClick={() => handleChangeColor(hex)}
+                          style={{ backgroundColor: hex }}
+                          className="h-4 w-full cursor-pointer rounded-md"
+                        ></div>
+                      </DropdownMenu.Item>
+                    );
+                  })}
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className="color-t flex cursor-pointer items-center justify-between rounded-md p-1 pl-4 text-sm tracking-wide text-neutral-700 hover:bg-purple-400 hover:text-white">
+              Tetrad
+              <LayersIcon className="h-4 w-4" />
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent className="min-w-[170px] space-y-2 rounded-md bg-white p-2 shadow-outline">
+                {getTetrad(color)
+                  .slice(1)
+                  .map((hex, i) => {
+                    return (
+                      <DropdownMenu.Item key={i}>
+                        <div
+                          onClick={() => handleChangeColor(hex)}
+                          style={{ backgroundColor: hex }}
+                          className="h-4 w-full cursor-pointer rounded-md"
+                        ></div>
+                      </DropdownMenu.Item>
+                    );
+                  })}
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className="color-t flex cursor-pointer items-center justify-between rounded-md p-1 pl-4 text-sm tracking-wide text-neutral-700 hover:bg-purple-400 hover:text-white">
+              Analagous
+              <LoopIcon className="h-4 w-4" />
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent className="min-w-[170px] space-y-2 rounded-md bg-white p-2 shadow-outline">
+                {getAnalogous(color)
+                  .slice(1)
+                  .map((hex, i) => {
+                    return (
+                      <DropdownMenu.Item key={i}>
+                        <div
+                          onClick={() => handleChangeColor(hex)}
+                          style={{ backgroundColor: hex }}
+                          className="h-4 w-full cursor-pointer rounded-md"
+                        ></div>
+                      </DropdownMenu.Item>
+                    );
+                  })}
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className="color-t flex cursor-pointer items-center justify-between rounded-md p-1 pl-4 text-sm tracking-wide text-neutral-700 hover:bg-purple-400 hover:text-white">
+              Split Compliment
+              <ComponentNoneIcon className="h-4 w-4" />
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent className="min-w-[170px] space-y-2 rounded-md bg-white p-2 shadow-outline">
+                {getSplitComplement(color)
+                  .slice(1)
+                  .map((hex, i) => {
+                    return (
+                      <DropdownMenu.Item key={i}>
+                        <div
+                          onClick={() => handleChangeColor(hex)}
+                          style={{ backgroundColor: hex }}
+                          className="h-4 w-full cursor-pointer rounded-md"
+                        ></div>
+                      </DropdownMenu.Item>
+                    );
+                  })}
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+          <DropdownMenu.Arrow />
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
   );
 };
 

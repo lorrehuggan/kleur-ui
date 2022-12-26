@@ -13,6 +13,9 @@ module.exports = {
         hand: ["Patrick Hand", ...defaultTheme.fontFamily.mono],
         mono: ["Chivo Mono", ...defaultTheme.fontFamily.mono],
       },
+      boxShadow: {
+        outline: `0px 0px 3px rgba(0, 0, 0, 0.5)`,
+      },
     },
   },
   plugins: [],
