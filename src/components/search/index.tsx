@@ -10,7 +10,7 @@ const Search = () => {
   const { color, setColor } = useColor((state) => state);
   const [invalid, setInvalid] = useState(false);
 
-  useKeyboardEvent("Control", (e) => {
+  useKeyboardEvent("Escape", (e) => {
     setColor(vendor.getRandomColor());
   });
 

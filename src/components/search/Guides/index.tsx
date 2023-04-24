@@ -18,7 +18,7 @@ const Guides = () => {
       </div>
       <div className="absolute left-[0px] -top-16 hidden origin-left -rotate-[5deg] lg:-top-10 lg:left-[150px] lg:inline-block ">
         <span className=" font-hand text-xl">
-          Hit the ctrl<br></br>randomize hex code.
+          Hit the escape<br></br>randomize hex code.
         </span>
       </div>
       <div className="absolute left-[250px] -top-0 hidden origin-right -rotate-[20deg] lg:inline-block ">

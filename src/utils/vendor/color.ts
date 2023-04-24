@@ -165,3 +165,87 @@ export function getAnalogous(hex: string): string[] {
 
   return colorAnalogous.map((color) => color.toHexString());
 }
+
+export function getComplementaryColors(): string[] {
+  const color = new TinyColor(getRandomColor());
+  const colorComplement = color.complement();
+
+  const colorComplementary = [
+    colorComplement.toHexString(),
+    colorComplement.spin(180).toHexString().toUpperCase(),
+  ];
+
+  return colorComplementary;
+}
+
+// function to get array 5 of complementary colors from random color
+export function getComplementaryColorsArray(): string[] {
+  const color = new TinyColor(getRandomColor());
+  const colorComplement = color.complement();
+
+  const colorComplementary = [
+    colorComplement.toHexString(),
+    colorComplement.spin(180).toHexString().toUpperCase(),
+    colorComplement.spin(90).toHexString().toUpperCase(),
+    colorComplement.spin(270).toHexString().toUpperCase(),
+    colorComplement.spin(45).toHexString().toUpperCase(),
+  ];
+
+  return colorComplementary;
+}
+
+// function to get array 5 of analogous colors from random color
+export function getAnalogousColorsArray(): string[] {
+  const color = new TinyColor(getRandomColor());
+  const colorAnalogous = color.analogous();
+
+  const colorAnalogousArray = [
+    colorAnalogous[0].toHexString(),
+    colorAnalogous[1].toHexString().toUpperCase(),
+    colorAnalogous[2].toHexString().toUpperCase(),
+    colorAnalogous[3].toHexString().toUpperCase(),
+    colorAnalogous[4].toHexString().toUpperCase(),
+  ];
+
+  return colorAnalogousArray;
+}
+
+// function to get array 5 of monochromatic colors from random color arrange based on luminance using chroma
+export function getMonochromaticColorsArray(): string[] {
+  const color = new TinyColor(getRandomColor());
+  const colorMonochromatic = color.monochromatic();
+
+  let colorMonochromaticArray = [
+    colorMonochromatic[0].toHexString(),
+    colorMonochromatic[1].toHexString().toUpperCase(),
+    colorMonochromatic[2].toHexString().toUpperCase(),
+    colorMonochromatic[3].toHexString().toUpperCase(),
+    colorMonochromatic[4].toHexString().toUpperCase(),
+  ];
+
+  // sort color array based on luminance
+  colorMonochromaticArray = colorMonochromaticArray.sort((a, b) => {
+    const luminanceA = chroma(a).luminance();
+    const luminanceB = chroma(b).luminance();
+
+    return luminanceA - luminanceB;
+  });
+
+  return colorMonochromaticArray;
+}
+
+// function to get array of 5 colors from random color to make a gradient
+export function getGradientColorsArray(): string[] {
+  const color = new TinyColor(getRandomColor());
+  const colorComplement = color.complement();
+
+  const colorComplementary = [
+    colorComplement.toHexString(),
+    colorComplement.spin(180).toHexString().toUpperCase(),
+    colorComplement.spin(90).toHexString().toUpperCase(),
+    colorComplement.spin(270).toHexString().toUpperCase(),
+    colorComplement.spin(45).toHexString().toUpperCase(),
+  ];
+
+  return colorComplementary;
+}
